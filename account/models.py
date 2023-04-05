@@ -1,6 +1,8 @@
 from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
 from django.contrib.auth.models import PermissionsMixin
 from django.db import models
+from django.utils import timezone
+from django.utils.translation import gettext_lazy as _
 
 
 class UserManager(BaseUserManager):
@@ -40,7 +42,7 @@ class UserManager(BaseUserManager):
 
 
 # Create your models here.
-class User(AbstractBaseUser, PermissionsMixin):
+class MyUser(AbstractBaseUser, PermissionsMixin):
     username = None
     email = models.EmailField(unique=True, blank=False, null=False)
     identication_number = models.CharField(unique=True, max_length=20, blank=False, null=False)
@@ -51,7 +53,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     phone_number = models.CharField(max_length=10, null=True, blank=True)
     start_date = models.DateTimeField(null=True)
     is_active = models.BooleanField(default=True)
-    date_joined = models.DateTimeField(auto_now_add=True)
+    date_joined = models.DateTimeField(_('date joined'), default=timezone.now)
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
