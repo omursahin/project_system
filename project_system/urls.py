@@ -15,7 +15,6 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include, re_path
-from django.contrib.auth.models import User
 from rest_framework import routers, serializers, viewsets
 from rest_framework import permissions
 from drf_yasg.views import get_schema_view
@@ -24,19 +23,23 @@ from rest_framework_simplejwt.views import (
     TokenObtainPairView,
     TokenRefreshView,
 )
+
+from account.models import MyUser
+
+
 # Duzeltmek icin ctrl+alt+L
 # Serializers define the API representation.
 
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
-        model = User
+        model = MyUser
         fields = ['url', 'username', 'email', 'is_staff']
 
 
 # ViewSets define the view behavior.
 class UserViewSet(viewsets.ModelViewSet):
-    queryset = User.objects.all()
+    queryset = MyUser.objects.all()
     serializer_class = UserSerializer
 
 
