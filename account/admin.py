@@ -3,6 +3,7 @@ from django.contrib.auth.admin import UserAdmin
 
 from account.models import MyUser
 
+
 # Register your models here.
 @admin.register(MyUser)
 class MyUserAdmin(UserAdmin):
@@ -11,9 +12,10 @@ class MyUserAdmin(UserAdmin):
     ordering = ('email',)
     fieldsets = (
         (None, {'fields': ('email', 'password')}),
-        ('Personal info', {'fields': ('identication_number', 'first_name', 'last_name')}),
+        ('Personal info', {'fields': ('identication_number',
+                                      'first_name', 'last_name')}),
         ('Permissions', {'fields': ('is_active', 'is_staff', 'is_superuser',
-                                       'groups', 'user_permissions')}),
+                                    'groups', 'user_permissions')}),
         ('Important dates', {'fields': ('last_login', 'date_joined')}),
     )
     add_fieldsets = (
