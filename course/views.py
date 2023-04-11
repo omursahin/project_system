@@ -1,6 +1,6 @@
-from django.shortcuts import render
 from rest_framework import generics
-from rest_framework.permissions import BasePermission, SAFE_METHODS, IsAuthenticated, IsAdminUser
+from rest_framework.permissions import BasePermission, \
+    SAFE_METHODS, IsAuthenticated, IsAdminUser
 
 from course.models import Course
 from course.serializers import CourseSerializer
