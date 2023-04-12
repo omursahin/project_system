@@ -28,3 +28,6 @@ jobs:
     - name: Run Tests
       run: |
         python manage.py test
+    - name: Run Flake8
+      run: |
+        flake8 --exclude migrations,pycache,manage.py,settings.py,env,venv .
