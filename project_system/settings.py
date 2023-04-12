@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
     'drf_yasg',
     'account',
-    'semester'
+    'semester',
+    'course',
 ]
 
 AUTH_USER_MODEL = 'account.MyUser'
