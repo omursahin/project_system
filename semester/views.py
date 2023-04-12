@@ -1,14 +1,9 @@
 from rest_framework import generics
-from rest_framework.permissions import BasePermission, SAFE_METHODS, \
-    IsAuthenticated, IsAdminUser
+from rest_framework.permissions import IsAuthenticated, IsAdminUser
 
+from project_system.permissions import ReadOnly
 from semester.models import Semester
 from semester.serializers import SemesterSerializer
-
-
-class ReadOnly(BasePermission):
-    def has_permission(self, request, view):
-        return request.method in SAFE_METHODS
 
 
 # Create your views here.

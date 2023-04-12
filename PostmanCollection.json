@@ -1,0 +1,390 @@
+{
+	"info": {
+		"_postman_id": "01e484fc-4be3-40ed-8ff3-5bc19e40d807",
+		"name": "Project System",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16347138"
+	},
+	"item": [
+		{
+			"name": "account",
+			"item": [
+				{
+					"name": "Get Token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"{{email}}\",\r\n    \"password\": \"{{password}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/account/token/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"account",
+								"token",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "semester",
+			"item": [
+				{
+					"name": "Get All Semesters",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/semesters/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"semesters",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Semesters By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/semesters/1/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"semesters",
+								"1",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Semester",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"term\": 2,\r\n    \"year\": 2024\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/semesters/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"semesters",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Semester",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"year\": 2020\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/semesters/1/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"semesters",
+								"1",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Semester",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/semesters/3/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"semesters",
+								"3",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "course",
+			"item": [
+				{
+					"name": "Get All Courses",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/courses/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"courses",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Courses By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/courses/1/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"courses",
+								"1",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Courses",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"term\": 2,\r\n    \"year\": 2024\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/courses/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"courses",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Courses",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"code\": \"BS436\",\r\n    \"title\": \"Web Programlama II\",\r\n    \"description\": \"Çok sıkıcı bir ders\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/courses/1/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"courses",
+								"1",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Courses",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/courses/2/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"courses",
+								"2",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"const getToken = {",
+					"    url: pm.collectionVariables.get(\"url\") + '/account/token/',",
+					"    method: 'POST',",
+					"    header: {",
+					"        'content-type': 'application/json'",
+					"    },",
+					"    body: {",
+					"        mode: 'raw',",
+					"        raw: JSON.stringify({",
+					"            email: pm.collectionVariables.get(\"email\"),",
+					"            password: pm.collectionVariables.get(\"password\")",
+					"        })",
+					"    }",
+					"};",
+					"",
+					"pm.sendRequest(getToken,",
+					"    (err, res) => {",
+					"        const json = res.json();",
+					"        pm.collectionVariables.set(\"token\", json.access);",
+					"});"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "http://127.0.0.1:8000/api/v1",
+			"type": "string"
+		},
+		{
+			"key": "email",
+			"value": "omur@test.com",
+			"type": "string"
+		},
+		{
+			"key": "password",
+			"value": "123456",
+			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjgxMzA0MjgwLCJpYXQiOjE2ODEzMDM5ODAsImp0aSI6IjU4Yzk4MmJlNmRhYjQ2ZTU5OGJhMzQxZmVkNTI0OTZkIiwidXNlcl9pZCI6MX0.gzJl-itJxtf-cm65mqIrInVB429lcaLiKBBcL4vlzjo",
+			"type": "string"
+		}
+	]
+}
