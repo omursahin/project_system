@@ -2,11 +2,10 @@ from django.db import models
 
 
 class Course(models.Model):
-    code = models.CharField(max_length=10)
-    title = models.CharField(max_length=100)
-    description = models.CharField(max_length=1000)
-
-    # course_credit = models.IntegerField()
+    code = models.CharField(unique=True, null=False,
+                            blank=False, max_length=10)
+    title = models.CharField(null=False, blank=False, max_length=100)
+    description = models.CharField(null=True, blank=True, max_length=1000)
 
     class Meta:
         db_table = 'course'
