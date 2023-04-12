@@ -1,3 +1,6 @@
+[![Django CI](https://github.com/omursahin/project_system/actions/workflows/django.yml/badge.svg)](https://github.com/omursahin/project_system/actions/workflows/django.yml)
+
+
 # Proje Yönetim Sistemi
 ___
 ## Başlangıç
