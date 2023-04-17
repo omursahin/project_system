@@ -16,5 +16,5 @@ class SemesterCourse(models.Model):
         verbose_name_plural = 'SemesterCourses'
         unique_together = ('semester', 'course',)
 
-    def _str_(self):
-        return self.semester.term + " " + self.course.title
+    def __str__(self):
+        return str(self.semester) + " - " + self.course.title
