@@ -4,8 +4,8 @@ from semester.models import Semester
 
 
 class SemesterCourse(models.Model):
-    semester = models.ForeignKey(Semester, on_delete=models.CASCADE, unique=True, null=False, blank=True)
-    course = models.ForeignKey(Course, on_delete=models.CASCADE, unique=True, null=False, blank=True)
+    semester = models.ForeignKey(Semester, on_delete=models.CASCADE, null=False, blank=True)
+    course = models.ForeignKey(Course, on_delete=models.CASCADE, null=False, blank=True)
     max_group_size = models.IntegerField(null=False, blank=True)
 
     class Meta:
@@ -15,4 +15,4 @@ class SemesterCourse(models.Model):
         unique_together = ('semester', 'course',)
 
     def _str_(self):
-        return self.semester + " " + self.course
+        return self.semester.term + " " + self.course.title
