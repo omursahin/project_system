@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'account',
     'semester',
     'course',
+    'semester_course'
 ]
 
 AUTH_USER_MODEL = 'account.MyUser'
