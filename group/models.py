@@ -1,7 +1,4 @@
-from urllib import request
 from django.db import models
-from course.models import Course
-from semester.models import Semester
 
 
 class Group(models.Model):
@@ -13,7 +10,8 @@ class Group(models.Model):
     owner = models.ForeignKey('account.MyUser', on_delete=models.CASCADE,
                               editable=False, related_name='owner_groups')
     semester_course = models.ForeignKey(
-        'semester_course.SemesterCourse', on_delete=models.CASCADE, related_name='semester_course')
+        'semester_course.SemesterCourse',
+        on_delete=models.CASCADE, related_name='semester_course')
     title = models.CharField(max_length=255)
     description = models.CharField(max_length=255, blank=True, null=True)
     max_size = models.IntegerField(editable=False)
