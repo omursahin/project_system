@@ -21,4 +21,5 @@ class Semester(models.Model):
 
     def __str__(self):
         return str(self.year) + "-" + str(self.year + 1) + " " + \
-               self.TERM_CHOICES.__getitem__(self.term).__getitem__(1) + " Semester"
+               self.TERM_CHOICES.__getitem__(self.term).__getitem__(1) + \
+               " Semester"
