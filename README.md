@@ -100,3 +100,9 @@ Flake8 kuralları için [buraya](http://flake8.pycqa.org/en/latest/user/error-co
 
 Örnek flake 8 komutu:
 `flake8 --exclude migrations,pycache,manage.py,settings.py,env,venv .`
+
+Testleri çalıştırmak ve kapsama miktarını hesaplamak için:
+`coverage run --source='.' manage.py test`
+
+HTML formatında kapsam raporu oluşturmak için:
+`coverage html`
