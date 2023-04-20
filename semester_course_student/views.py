@@ -1,5 +1,5 @@
 from rest_framework import generics
-from rest_framework.permissions import IsAdminUser
+from rest_framework.permissions import IsAdminUser, IsAuthenticated
 
 from semester_course_student.models import SemesterCourseStudent
 from semester_course_student.serializers import SemesterCourseStudentSerializer
@@ -13,6 +13,6 @@ class SemesterCourseStudentList(generics.ListCreateAPIView):
     serializer_class = SemesterCourseStudentSerializer
 
 class SemesterCourseStudentDetail(generics.RetrieveUpdateDestroyAPIView):
-    permission_classes = [IsAdminUser | ReadOnly]
+    permission_classes = [IsAuthenticated | ReadOnly]
     queryset = SemesterCourseStudent.objects.all()
     serializer_class = SemesterCourseStudentSerializer
