@@ -13,3 +13,8 @@ class SemesterCourseStudent(models.Model):
         db_table = 'semester_course_student'
         verbose_name = 'Semester Course Student'
         verbose_name_plural = 'Semester Course Students'
+
+    def __str__(self):
+        return f"{self.semester_course} " \
+               f"{self.student.first_name} " \
+               f"{self.student.last_name}"
