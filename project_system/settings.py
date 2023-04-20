@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'account',
     'semester',
     'course',
-    'semester_course'
+    'semester_course',
     'semester_course_student'
 ]
 

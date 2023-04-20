@@ -12,6 +12,7 @@ class SemesterCourseStudentList(generics.ListCreateAPIView):
     queryset = SemesterCourseStudent.objects.all()
     serializer_class = SemesterCourseStudentSerializer
 
+
 class SemesterCourseStudentDetail(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = [IsAuthenticated | ReadOnly]
     queryset = SemesterCourseStudent.objects.all()
