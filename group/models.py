@@ -2,10 +2,10 @@ from django.db import models
 
 
 class Group(models.Model):
-    STATUS_CHOICES = (
-        ('active', 'Active'),
-        ('inactive', 'Inactive'),
-    )
+    STATUS_CHOICES = (("A", "Approved"),
+                      ("P", "Pending"),
+                      ("D", "Draft"),
+                      ("R", "Rejected"))
 
     owner = models.ForeignKey('account.MyUser', on_delete=models.CASCADE,
                               editable=False, related_name='owner_groups')
