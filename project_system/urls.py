@@ -48,18 +48,17 @@ router = routers.DefaultRouter()
 router.register(r'users', UserViewSet)
 
 schema_view = get_schema_view(
-   openapi.Info(
-      title="Project System API",
-      default_version='v1',
-      description="Test description",
-      terms_of_service="https://www.google.com/policies/terms/",
-      contact=openapi.Contact(email="contact@snippets.local"),
-      license=openapi.License(name="BSD License"),
-   ),
-   public=True,
-   permission_classes=[permissions.AllowAny],
+    openapi.Info(
+        title="Project System API",
+        default_version='v1',
+        description="Test description",
+        terms_of_service="https://www.google.com/policies/terms/",
+        contact=openapi.Contact(email="contact@snippets.local"),
+        license=openapi.License(name="BSD License"),
+    ),
+    public=True,
+    permission_classes=[permissions.AllowAny],
 )
-
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -78,5 +77,6 @@ urlpatterns = [
     path('api/v1/semesters/', include('semester.urls')),
     path('api/v1/courses/', include('course.urls')),
     path('api/v1/semester_courses/', include('semester_course.urls')),
+    path('api/v1/semester_course_students/', include('semester_course_student.urls')),
 
 ]
