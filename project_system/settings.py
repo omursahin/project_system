@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'semester',
     'course',
     'semester_course',
-    'semester_course_student'
+    'semester_course_student',
     'group'
 ]
 
