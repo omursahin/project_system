@@ -1,5 +1,5 @@
 from rest_framework import generics
-from rest_framework.permissions import IsAdminUser, IsAuthenticated, IsStaff
+from rest_framework.permissions import IsAuthenticated, IsStaff
 
 from semester_course_student.models import SemesterCourseStudent
 from semester_course_student.serializers import SemesterCourseStudentSerializer

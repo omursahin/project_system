@@ -1,5 +1,7 @@
 from django.urls import path
-from semester_course_student.views import SemesterCourseStudentList, SemesterCourseStudentDetail
+from semester_course_student.views \
+    import SemesterCourseStudentList, \
+    SemesterCourseStudentDetail
 
 urlpatterns = [
     path('', SemesterCourseStudentList.as_view()),
