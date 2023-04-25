@@ -4,6 +4,7 @@ from project_system.urls import UserSerializer
 from semester_course.serializers import SemesterCourseGetSerializer
 from semester_course_student.models import SemesterCourseStudent
 
+
 class SemesterCourseStudentGetSerializer(serializers.ModelSerializer):
     semester_course = SemesterCourseGetSerializer()
     student = UserSerializer()
