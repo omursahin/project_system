@@ -1,5 +1,4 @@
 from django.db import models
-from group.models import Group
 
 
 class GroupProject(models.Model):

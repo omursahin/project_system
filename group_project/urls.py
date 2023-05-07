@@ -5,4 +5,3 @@ urlpatterns = [
     path('', GroupProjectList.as_view()),
     path('<int:pk>/', GroupProjectDetail.as_view()),
 ]
-

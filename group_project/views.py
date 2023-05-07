@@ -11,6 +11,7 @@ class GroupProjectList(generics.ListCreateAPIView):
     permission_classes = [IsAdminUser | ReadOnly]
     queryset = GroupProject.objects.all()
     serializer_class = GroupProjectSerializer
+
     def perform_create(self, serializer):
         serializer.save(group=self.request.user.group)
 
@@ -22,4 +23,3 @@ class GroupProjectDetail(generics.RetrieveUpdateDestroyAPIView):
 
     def perform_update(self, serializer):
         serializer.save(group=self.request.user.group)
-
