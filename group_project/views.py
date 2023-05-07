@@ -8,18 +8,16 @@ from project_system.permissions import IsGroupOwner
 
 # Create your views here.
 class GroupProjectList(generics.ListCreateAPIView):
-    permission_classes = [IsGroupOwner | IsAdminUser]
+    permission_classes = [IsGroupOwner ]
     queryset = GroupProject.objects.all()
     serializer_class = GroupProjectSerializer
 
-    def perform_create(self, serializer):
-        serializer.save(group=self.request.user.group)
+
 
 
 class GroupProjectDetail(generics.RetrieveUpdateDestroyAPIView):
-    permission_classes = [IsGroupOwner | IsAuthenticated | IsAdminUser]
+    permission_classes = [IsGroupOwner ]
     queryset = GroupProject.objects.all()
     serializer_class = GroupProjectSerializer
 
-    def perform_update(self, serializer):
-        serializer.save(group=self.request.user.group)
+

@@ -14,8 +14,8 @@ class GroupProject(models.Model):
         on_delete=models.CASCADE, related_name='group')
     title = models.CharField(max_length=255, blank=False, null=False)
     description = models.CharField(max_length=255, blank=True, null=True)
-    is_approved = models.BooleanField()
-    status = models.CharField(max_length=1, choices=STATUS_CHOICES)
+    is_approved = models.BooleanField(default=False)
+    status = models.CharField(max_length=1, choices=STATUS_CHOICES, default='D')
 
     class Meta:
         db_table = 'group_project'
