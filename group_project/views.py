@@ -3,12 +3,12 @@ from rest_framework.permissions import IsAuthenticated, IsAdminUser
 
 from group_project.models import GroupProject
 from group_project.serializers import GroupProjectSerializer
-from project_system.permissions import ReadOnly
+from project_system.permissions import IsGroupOwner
 
 
 # Create your views here.
 class GroupProjectList(generics.ListCreateAPIView):
-    permission_classes = [IsAdminUser | ReadOnly]
+    permission_classes = [IsGroupOwner | IsAdminUser]
     queryset = GroupProject.objects.all()
     serializer_class = GroupProjectSerializer
 
@@ -17,7 +17,7 @@ class GroupProjectList(generics.ListCreateAPIView):
 
 
 class GroupProjectDetail(generics.RetrieveUpdateDestroyAPIView):
-    permission_classes = [IsAuthenticated | ReadOnly]
+    permission_classes = [IsGroupOwner | IsAuthenticated | IsAdminUser]
     queryset = GroupProject.objects.all()
     serializer_class = GroupProjectSerializer
 
