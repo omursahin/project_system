@@ -1,8 +1,8 @@
 from rest_framework import generics
 
-from rest_framework.permissions import IsAuthenticated, IsAdminUser
+from rest_framework.permissions import IsAdminUser
 
-from project_system.permissions import ReadOnly, IsStudentOwnerOrStaff
+from project_system.permissions import ReadOnly
 from semester_course_student.models import SemesterCourseStudent
 from semester_course_student.serializers \
     import SemesterCourseStudentGetSerializer, \
