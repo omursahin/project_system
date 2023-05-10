@@ -81,5 +81,6 @@ urlpatterns = [
          include('semester_course_student.urls')),
     path('api/v1/groups/', include('group.urls')),
     path('api/v1/reports/', include('report.urls')),
-    path('api/v1/group_projects/', include('group_project.urls'))
+    path('api/v1/group_projects/', include('group_project.urls')),
+    path('api/v1/group_member/', include('group_member.urls')),
 ]
