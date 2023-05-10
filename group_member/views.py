@@ -1,9 +1,8 @@
 from rest_framework import generics
-from rest_framework.permissions import IsAuthenticated, IsAdminUser
+from rest_framework.permissions import IsAuthenticated
 from group_member.models import GroupMember
 from group_member.serializer import GroupMemberGetSerializer,\
     GroupMemberPostSerializer
-
 
 
 class GroupMemberList(generics.ListCreateAPIView):
