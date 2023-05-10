@@ -2,6 +2,7 @@ from rest_framework import generics
 
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
 
+from project_system.permissions import ReadOnly, IsStudentOwnerOrStaff
 from semester_course_student.models import SemesterCourseStudent
 from semester_course_student.serializers \
     import SemesterCourseStudentGetSerializer, \
@@ -10,8 +11,13 @@ from semester_course_student.serializers \
 
 # Create your views here.
 class SemesterCourseStudentList(generics.ListCreateAPIView):
-    permission_classes = [IsAuthenticated | IsAdminUser]
-    queryset = SemesterCourseStudent.objects.all()
+    # TODO: student veya staff okuyabilir
+    permission_classes = [ReadOnly | IsAdminUser]
+
+    def get_queryset(self):
+        if self.request.user.is_staff or self.request.user.is_superuser:
+            return SemesterCourseStudent.objects.all()
+        return SemesterCourseStudent.objects.filter(student=self.request.user)
 
     def get_serializer_class(self):
         if self.request.method == 'GET':
@@ -20,9 +26,13 @@ class SemesterCourseStudentList(generics.ListCreateAPIView):
 
 
 class SemesterCourseStudentDetail(generics.RetrieveUpdateDestroyAPIView):
-    permission_classes = [IsAuthenticated | IsAdminUser]
-    queryset = SemesterCourseStudent.objects.all()
+    permission_classes = [ReadOnly | IsAdminUser]
     serializer_class = SemesterCourseStudentGetSerializer
+
+    def get_queryset(self):
+        if self.request.user.is_staff or self.request.user.is_superuser:
+            return SemesterCourseStudent.objects.all()
+        return SemesterCourseStudent.objects.filter(student=self.request.user)
 
     def get_serializer_class(self):
         if self.request.method == 'GET':

@@ -106,3 +106,11 @@ Testleri çalıştırmak ve kapsama miktarını hesaplamak için:
 
 HTML formatında kapsam raporu oluşturmak için:
 `coverage html`
+
+___
+
+**Kullanıcı Hesapları**
+
+* omur@test.com:123456
+* ogrenci1@erciyes.edu.tr:Password@2023
+* ogrenci2@erciyes.edu.tr:Password@2023
