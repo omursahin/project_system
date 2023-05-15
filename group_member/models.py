@@ -17,5 +17,4 @@ class GroupMember(models.Model):
         unique_together = ('member', 'group')
 
     def __str__(self):
-        return self.member.first_name + " " + self.member.last_name \
-            + " " + self.group.title
+        return "%s - %s" % (self.group.title, self.member.identification_number)
