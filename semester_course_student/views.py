@@ -1,6 +1,6 @@
 from rest_framework import generics
 
-from rest_framework.permissions import IsAdminUser
+from rest_framework.permissions import IsAdminUser, IsAuthenticated
 
 from project_system.permissions import ReadOnly
 from semester_course_student.models import SemesterCourseStudent
@@ -26,7 +26,7 @@ class SemesterCourseStudentList(generics.ListCreateAPIView):
 
 
 class SemesterCourseStudentDetail(generics.RetrieveUpdateDestroyAPIView):
-    permission_classes = [ReadOnly | IsAdminUser]
+    permission_classes = [IsAuthenticated | ReadOnly | IsAdminUser]
     serializer_class = SemesterCourseStudentGetSerializer
 
     def get_queryset(self):

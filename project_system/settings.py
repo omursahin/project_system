@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'semester_course_student',
     'group_project',
     'group_member',
+    'corsheaders'
 ]
 
 AUTH_USER_MODEL = 'account.MyUser'
@@ -56,6 +57,7 @@ AUTH_USER_MODEL = 'account.MyUser'
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    'corsheaders.middleware.CorsMiddleware',
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -96,6 +98,13 @@ DATABASES = {
         },
     }
 }
+
+CORS_ALLOWED_ORIGINS = [
+    "http://127.0.0.1:3000",
+    "http://localhost:3000",
+]
+CORS_ALLOW_HEADERS = ('content-disposition', 'accept-encoding',
+                      'content-type', 'accept', 'origin', 'Authorization')
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
