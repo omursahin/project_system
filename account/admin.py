@@ -7,7 +7,7 @@ from account.models import MyUser
 # Register your models here.
 @admin.register(MyUser)
 class MyUserAdmin(UserAdmin):
-    list_display = ('email', 'first_name', 'last_name', 'is_staff')
+    list_display = ('id', 'email', 'first_name', 'last_name', 'is_staff')
     search_fields = ('email', 'first_name', 'last_name')
     ordering = ('email',)
     fieldsets = (
@@ -21,6 +21,7 @@ class MyUserAdmin(UserAdmin):
     add_fieldsets = (
         (None, {
             'classes': ('wide',),
-            'fields': ('email', 'password1', 'password2'),
+            'fields': ('email', 'identication_number', 'password1',
+                       'password2'),
         }),
     )
