@@ -14,11 +14,15 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from django.contrib.auth import get_user_model
 from django.urls import path, include, re_path
 from rest_framework import routers, serializers, viewsets
 from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
+from rest_framework.decorators import action
+from rest_framework.generics import get_object_or_404
+from rest_framework.response import Response
 from rest_framework_simplejwt.views import (
     TokenObtainPairView,
     TokenRefreshView,
@@ -34,13 +38,21 @@ from account.models import MyUser
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = MyUser
-        fields = ['url', 'username', 'email', 'is_staff']
+        fields = ['url', 'identication_number', 'first_name', 'last_name',
+                  'email', 'is_staff']
 
 
 # ViewSets define the view behavior.
 class UserViewSet(viewsets.ModelViewSet):
     queryset = MyUser.objects.all()
     serializer_class = UserSerializer
+
+    @action(methods=('GET',), detail=False, url_path='me', url_name='me')
+    def me(self, request, *args, **kwargs):
+        User = get_user_model()
+        self.object = get_object_or_404(User, pk=request.user.id)
+        serializer = self.get_serializer(self.object)
+        return Response(serializer.data)
 
 
 # Routers provide an easy way of automatically determining the URL conf.

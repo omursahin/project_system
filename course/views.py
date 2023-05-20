@@ -9,7 +9,7 @@ from project_system.permissions import ReadOnly
 
 # Create your views here.
 class CourseList(generics.ListCreateAPIView):
-    permission_classes = [IsAdminUser | ReadOnly]
+    permission_classes = [IsAdminUser]
     queryset = Course.objects.all()
     serializer_class = CourseSerializer
 
