@@ -1,8 +1,5 @@
 from django.db import models
 
-
-# Create your models here.
-
 class ProjectReport(models.Model):
     project = models.ForeignKey('group_project.GroupProject',
                                 on_delete=models.CASCADE,
