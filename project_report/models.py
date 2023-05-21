@@ -1,13 +1,14 @@
 from django.db import models
 
+
 # Create your models here.
 
 class ProjectReport(models.Model):
     project = models.ForeignKey('group_project.GroupProject',
-                                        on_delete=models.CASCADE,
-                                        null=False, blank=False)
-    report = models.ForeignKey('report.Report', on_delete=models.CASCADE,
+                                on_delete=models.CASCADE,
                                 null=False, blank=False)
+    report = models.ForeignKey('report.Report', on_delete=models.CASCADE,
+                               null=False, blank=False)
 
     description = models.CharField(null=True, blank=True, max_length=255)
     file = models.FileField(null=True, blank=True)

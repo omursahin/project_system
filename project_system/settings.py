@@ -49,7 +49,8 @@ INSTALLED_APPS = [
     'semester_course_student',
     'group_project',
     'group_member',
-    'corsheaders'
+    'corsheaders',
+    'project_report'
 ]
 
 AUTH_USER_MODEL = 'account.MyUser'
