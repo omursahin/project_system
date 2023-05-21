@@ -9,12 +9,13 @@ class ProjectReport(models.Model):
     report = models.ForeignKey('report.Report', on_delete=models.CASCADE,
                                 null=False, blank=False)
 
-    description = models.CharField(null=True, blank=True)
+    description = models.CharField(null=True, blank=True, max_length=255)
     file = models.FileField(null=True, blank=True)
     is_submitted = models.BooleanField
-    version = models.IntegerField
+    version = models.IntegerField(null=False, blank=False)
     plagiarism_file = models.FileField(null=True, blank=True)
     plagiarism_rate = models.IntegerField(null=True, blank=True)
+
 
     class Meta:
         db_table = 'project_report'
