@@ -15,3 +15,9 @@ class ProjectReport(models.Model):
     version = models.IntegerField
     plagiarism_file = models.FileField(null=True, blank=True)
     plagiarism_rate = models.IntegerField(null=True, blank=True)
+
+    class Meta:
+        db_table = 'project_report'
+        verbose_name = 'Project Report'
+        verbose_name_plural = 'Project Report'
+        unique_together = ('project', 'report', 'version')
