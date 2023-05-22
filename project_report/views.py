@@ -10,12 +10,8 @@ from project_system.permissions import ReadOnly
 
 
 class ProjectReportList(generics.ListCreateAPIView):
-    permission_classes = [IsAuthenticated | ReadOnly | IsAdminUser]
-
-    def get_queryset(self):
-        if self.request.user.is_staff or self.request.user.is_superuser:
-            return ProjectReport.objects.all()
-        return ProjectReport.objects.filter(student=self.request.user)
+    permission_classes = [IsAdminUser | ReadOnly]
+    queryset = ProjectReport.objects.all()
 
     def get_serializer_class(self):
         if self.request.method == 'GET':
@@ -24,13 +20,9 @@ class ProjectReportList(generics.ListCreateAPIView):
 
 
 class ProjectReportDetail(generics.RetrieveUpdateDestroyAPIView):
-    permission_classes = [IsAuthenticated | ReadOnly | IsAdminUser]
+    permission_classes = [IsAuthenticated | ReadOnly]
+    queryset = ProjectReport.objects.all()
     serializer_class = ProjectReportGetSerializer
-
-    def get_queryset(self):
-        if self.request.user.is_staff or self.request.user.is_superuser:
-            return ProjectReport.objects.all()
-        return ProjectReport.objects.filter(student=self.request.user)
 
     def get_serializer_class(self):
         if self.request.method == 'GET':
