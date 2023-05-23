@@ -6,6 +6,7 @@ from project_report.models import ProjectReport
 
 class ProjectReportGetSerializer(serializers.ModelSerializer):
     report = ReportGetSerializer()
+    group_project = GroupProjectSerializer()
 
     class Meta:
         model = ProjectReport
