@@ -1,7 +1,7 @@
 from rest_framework.permissions import BasePermission, SAFE_METHODS
 
 from group.models import Group
-from project_report.models import ProjectReport
+from group_project.models import GroupProject
 
 
 class ReadOnly(BasePermission):
@@ -38,13 +38,13 @@ class IsProjectGroupOwner(BasePermission):
         if not request.user.is_authenticated:
             return False
 
-        project_id = request.data.get('project')
+        project_id = request.data.get('group_project')
         if not project_id:
             return False
 
         try:
-            project = ProjectReport.objects.get(id=project_id)
-        except ProjectReport.DoesNotExist:
+            project = GroupProject.objects.get(id=project_id)
+        except GroupProject.DoesNotExist:
             return False
 
         group = project.group

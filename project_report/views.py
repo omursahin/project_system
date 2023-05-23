@@ -10,7 +10,7 @@ from project_system.permissions import ReadOnly, IsProjectGroupOwner
 
 
 class ProjectReportList(generics.ListCreateAPIView):
-    permission_classes = [IsProjectGroupOwner]
+    permission_classes = [IsAuthenticated | IsProjectGroupOwner]
     queryset = ProjectReport.objects.all()
 
     def get_serializer_class(self):
