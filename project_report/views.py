@@ -6,11 +6,11 @@ from project_report.models import ProjectReport
 from project_report.serializers \
     import ProjectReportGetSerializer, \
     ProjectReportPostSerializer
-from project_system.permissions import ReadOnly
+from project_system.permissions import ReadOnly, IsProjectGroupOwner
 
 
 class ProjectReportList(generics.ListCreateAPIView):
-    permission_classes = [IsAdminUser | ReadOnly]
+    permission_classes = [IsProjectGroupOwner]
     queryset = ProjectReport.objects.all()
 
     def get_serializer_class(self):
@@ -20,9 +20,8 @@ class ProjectReportList(generics.ListCreateAPIView):
 
 
 class ProjectReportDetail(generics.RetrieveUpdateDestroyAPIView):
-    permission_classes = [IsAuthenticated | ReadOnly]
+    permission_classes = [IsProjectGroupOwner]
     queryset = ProjectReport.objects.all()
-    serializer_class = ProjectReportGetSerializer
 
     def get_serializer_class(self):
         if self.request.method == 'GET':
