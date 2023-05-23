@@ -1,12 +1,13 @@
 from rest_framework import generics
 from rest_framework.permissions \
-    import IsAuthenticated, IsAdminUser
+    import IsAuthenticated
 
 from project_report.models import ProjectReport
 from project_report.serializers \
     import ProjectReportGetSerializer, \
     ProjectReportPostSerializer
-from project_system.permissions import ReadOnly, IsProjectGroupOwner
+from project_system.permissions \
+    import IsProjectGroupOwner
 
 
 class ProjectReportList(generics.ListCreateAPIView):

@@ -19,7 +19,3 @@ class ProjectReportPostSerializer(serializers.ModelSerializer):
     class Meta:
         model = ProjectReport
         fields = '__all__'
-
-
-
-
