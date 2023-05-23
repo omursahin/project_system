@@ -2,6 +2,7 @@ from rest_framework import serializers
 
 from report.serializers import ReportGetSerializer
 from project_report.models import ProjectReport
+from group_project.serializers import GroupProjectSerializer
 
 
 class ProjectReportGetSerializer(serializers.ModelSerializer):
