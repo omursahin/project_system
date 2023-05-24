@@ -18,4 +18,4 @@ class GroupMember(models.Model):
 
     def __str__(self):
         return "%s - %s" % (self.group.title,
-                            self.member.identification_number)
+                            self.member.identication_number)
